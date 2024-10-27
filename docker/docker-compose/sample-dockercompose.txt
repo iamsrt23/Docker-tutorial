@@ -1,0 +1,1 @@
+clone docker voting app check the docker compose file

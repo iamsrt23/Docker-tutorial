@@ -1,0 +1,26 @@
+FROM ubuntu:latest 
+
+LABEL name="raviteja"
+   
+ADD https://releases.hashicorp.com/terraform/1.9.8/terraform_1.9.8_darwin_arm64.zip /var/www/html
+
+ENV AWS_ACCESS_KEY_ID=kjdnvjnjksnajvn\
+    AWS_SECRET_KEY_ID=kcnsdmkkjs\
+    AWS_DEFAULT_REGION=US-EAST-1A
+
+ARG T_VERSION='1.7.5' \
+    P_VERSION='1.10.1'
+
+EXPOSE 80
+
+RUN apt update && apt install -y jq net-tools curl wget unzip\
+    && apt install -y nginx iputils-ping 
+
+#CMD ["/usr/bin/ping","-c4","www.google.com"]
+#ENTRYPOINT ["/usr/bin/ping","-c4","www.google.com"]
+
+CMD [ "nginx","-g","daemon off;" ]
+
+
+
+

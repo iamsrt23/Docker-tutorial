@@ -1,0 +1,4 @@
+docker service create --constraint=node.role  ==worker --replicas 6 --publish 8000:80 imagename
+
+
+docker service create --name monitor --publish 9100:9100 --mode global prom/node-exporter:latest

@@ -1,0 +1,8 @@
+# TO create a 10 files in bash
+for I in {1..10};
+do
+echo $(date) > FILE-$I
+done
+
+
+docker build -t iamsrt23/custom:v1 --progress=plain --build-arg T_VERSION='1.5.0' --build-arg P_VERSION='1.4.0' -f Dockerfile.dev .

@@ -1,0 +1,12 @@
+FROM ubuntu:latest
+LABEL name="test"
+ARG T_VERSION='1.6.6'\  
+    P_VERSION='1.8.0'
+
+ENV AWS_ACCESS_KEY_ID = nsdkjfasfnkjdsnfkjnjkfmnjk\
+    AWS_SECRET_KEY_ID = sdnfkjksdnfkjasnkjn\
+    AWS_DEFAULT_REGION=US-EAST-1A
+RUN apt update && apt install -y jq net-tools curl wget unzip\
+    && apt install -y nginx iputils-ping
+EXPOSE 90
+CMD ["nginx","-g","daemon off;"]
